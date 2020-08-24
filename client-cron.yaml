@@ -1,0 +1,30 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: micropinger
+spec:
+  schedule: "*/5 * * * *"
+  failedJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: 1
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: micropinger
+            image: jmbaksregistrygenwe.azurecr.io/micropinger:1.0.6
+            envFrom:
+            - secretRef:
+                name: micropinger
+            volumeMounts:
+            - name: endpoints
+              mountPath: "/endpoints"
+              readOnly: true
+            args:
+            - micropinger
+          volumes:
+          - name: endpoints
+            secret:
+              secretName: micropinger-endpoints
+          restartPolicy: Never

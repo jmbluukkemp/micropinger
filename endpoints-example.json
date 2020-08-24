@@ -1,0 +1,19 @@
+{
+    "endpoints": [
+        {
+            "endpoint": "http://www.google.com",
+            "id": "xxx",
+            "secret": "xxx"
+        },
+        {
+            "endpoint": "http://jumbo.com",
+            "id": "xxx",
+            "secret": "xxx"
+        },
+        {
+            "endpoint": "https://jumbo.com/authenticated_api",
+            "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "secret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        }
+    ]
+}
